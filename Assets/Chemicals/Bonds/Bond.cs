@@ -2,8 +2,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class Bond {
-    public Transform atomA;
-    public Transform atomB;
+    public GameObject atomA;
+    public GameObject atomB;
     public BondType bondType;
 }
 

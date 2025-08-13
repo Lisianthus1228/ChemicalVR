@@ -2,14 +2,14 @@ using UnityEngine;
 
 public class BondUpdater : MonoBehaviour
 {
-    public Transform atomA;
-    public Transform atomB;
+    public GameObject atomA;
+    public GameObject atomB;
 
     void LateUpdate() {
         if (atomA == null || atomB == null) return;
 
-        Vector3 posA = atomA.position;
-        Vector3 posB = atomB.position;
+        Vector3 posA = atomA.transform.position;
+        Vector3 posB = atomB.transform.position;
 
         // Position
         transform.position = (posA + posB) / 2f;
@@ -20,9 +20,9 @@ public class BondUpdater : MonoBehaviour
 
         // Scale
         transform.localScale = new Vector3(
-            transform.localScale.x,
+            atomA.transform.lossyScale.x * 0.006f,
             dir.magnitude / 2f,
-            transform.localScale.z
+            atomA.transform.lossyScale.z * 0.006f
         );
     }
 }

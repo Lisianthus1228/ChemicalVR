@@ -3,8 +3,8 @@ using UnityEditor;
 
 [CustomEditor(typeof(MoleculeManager))]
 public class MoleculeManagerEditor : Editor {
-    Transform atomA;
-    Transform atomB;
+    GameObject atomA;
+    GameObject atomB;
     BondType bondType;
 
     public override void OnInspectorGUI() {
@@ -15,8 +15,8 @@ public class MoleculeManagerEditor : Editor {
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("Add Bond", EditorStyles.boldLabel);
 
-        atomA = (Transform)EditorGUILayout.ObjectField("Atom A", atomA, typeof(Transform), true);
-        atomB = (Transform)EditorGUILayout.ObjectField("Atom B", atomB, typeof(Transform), true);
+        atomA = (GameObject)EditorGUILayout.ObjectField("Atom A", atomA, typeof(GameObject), true);
+        atomB = (GameObject)EditorGUILayout.ObjectField("Atom B", atomB, typeof(GameObject), true);
         bondType = (BondType)EditorGUILayout.EnumPopup("Bond Type", bondType);
 
         if (GUILayout.Button("Add Bond")) {
